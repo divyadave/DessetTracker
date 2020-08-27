@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="revenue"
+            type="Integer" />
+        <variable
+            name="amountsold"
+            type="Integer" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/bakery_back"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_end_guide"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/default_spacing">
+
+    </androidx.constraintlayout.widget.Guideline>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_bottom_guide"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/default_spacing">
+
+    </androidx.constraintlayout.widget.Guideline>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_start_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/default_spacing">
+
+    </androidx.constraintlayout.widget.Guideline>
+
+
+    <ImageButton
+        android:id="@+id/dessertButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/cupcake"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/white_background"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="232dp" />
+    <View
+        android:id="@+id/white_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="visible"
+        tools:src="@drawable/white_background"
+        android:background="@drawable/white_background"
+        app:layout_constraintTop_toTopOf="@id/amount_sold"
+        ></View>
+
+    <TextView
+        android:id="@+id/revenue_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+
+        android:text="@{'$'+ revenue.toString()}"
+
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toTopOf="@id/margin_bottom_guide"
+        app:layout_constraintEnd_toStartOf="@id/margin_end_guide" />
+
+    <TextView
+        android:id="@+id/dessert_sold_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/dessert_sold"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintBottom_toBottomOf="@id/amount_sold"
+        app:layout_constraintStart_toStartOf="@id/margin_start_guide" />
+
+    <TextView
+        android:id="@+id/amount_sold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/default_spacing"
+        android:layout_marginBottom="@dimen/default_spacing"
+        android:text="@{'$'+ amountsold.toString()}"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/medium_text"
+        app:layout_constraintBottom_toTopOf="@id/revenue_text"
+        app:layout_constraintEnd_toStartOf="@id/margin_end_guide" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
